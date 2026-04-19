@@ -1,27 +1,13 @@
 {
-  "name": "digital-marketing-and-technology-sevices-platform-project",
+  "name": "digitech-platform",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "start": "vite",
-    "backend": "node server.js",
-    "build": "vite build",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "dependencies": {
-    "cors": "^2.8.6",
-    "dotenv": "^17.4.2",
-    "express": "^5.2.1",
-    "mongoose": "^9.4.1",
-    "openai": "^6.34.0"
+    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "backend": "cd backend && npm run dev",
+    "frontend": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
   },
   "devDependencies": {
-    "vite": "^8.0.8"
+    "concurrently": "^8.2.2"
   }
 }

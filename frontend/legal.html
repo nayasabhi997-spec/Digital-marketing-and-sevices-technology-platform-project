@@ -38,7 +38,7 @@
         .tab-btn { background: none; border: none; color: var(--text-muted); font-family: var(--font-head); font-size: 20px; font-weight: 600; cursor: pointer; transition: 0.3s; padding: 10px 20px; border-radius: 12px; }
         .tab-btn.active { color: var(--accent); background: var(--glass); box-shadow: 0 0 20px rgba(0, 229, 255, 0.1); }
 
-        .content-section { display: none; background: var(--glass); padding: 50px; border-radius: 30px; border: 1px solid var(--glass-border); border: 1px solid var(--glass-border); }
+        .content-section { display: none; background: var(--glass); padding: 50px; border-radius: 30px; border: 1px solid var(--glass-border); }
         .content-section.active { display: block; animation: fadeIn 0.5s ease; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -62,8 +62,8 @@
 
     <div class="legal-container">
         <div class="tabs">
-            <button class="tab-btn active" onclick="showTab('privacy')">Privacy Policy</button>
-            <button class="tab-btn" onclick="showTab('terms')">Terms of Service</button>
+            <button class="tab-btn active" onclick="showTab('privacy', event)">Privacy Policy</button>
+            <button class="tab-btn" onclick="showTab('terms', event)">Terms of Service</button>
         </div>
 
         <!-- PRIVACY POLICY -->
@@ -118,12 +118,12 @@
     </footer>
 
     <script>
-        function showTab(id) {
+        function showTab(id, event) {
             document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             
             document.getElementById(id).classList.add('active');
-            event.target.classList.add('active');
+            if (event) event.target.classList.add('active');
         }
     </script>
 </body>

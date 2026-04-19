@@ -1411,6 +1411,7 @@
         </div>
 
         <!-- HERO SECTION -->
+        <section class='hero' id='home'
         <section class="hero"
             style="background: url('file:///C:/Users/ABHINAYA%20S/.gemini/antigravity/brain/cece656c-e042-4b41-9919-d64602e6657e/hero_bg_digitech_marketing_1776492027768.png') center/cover no-repeat; min-height: 90vh; position: relative;">
             <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(3, 7, 18, 0.7);">
@@ -1893,6 +1894,10 @@
 
         // On Load: Check if user is already logged in
         window.onload = function () {
+            const hash = window.location.hash;
+            if (hash.startsWith("#page-")) {
+                showPage(hash.replace("#page-", ""));
+            }
             const user = JSON.parse(localStorage.getItem('user'));
             if (user) {
                 const topBarText = document.querySelector('.top-bar h1');
@@ -2540,3 +2545,4 @@
 </body>
 
 </html>
+

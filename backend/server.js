@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const { OpenAI } = require('openai');
@@ -18,7 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve static files from the current directory
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, '../frontend')));
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/digitech')
@@ -321,3 +322,4 @@ app.post('/api/forgot-password', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Backend server successfully running at http://localhost:${PORT}`);
 });
+
