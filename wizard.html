@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Service Wizard | DigiTech Connect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --accent: #00e5ff;
+            --bg-deep: #030712;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --font-head: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg-deep); color: var(--text-main); font-family: var(--font-body); overflow-x: hidden; min-height: 100vh; }
+
+        header {
+            width: 100%; padding: 18px 60px; display: flex; justify-content: space-between; align-items: center;
+            background: rgba(3, 7, 18, 0.4); backdrop-filter: blur(25px); border-bottom: 1px solid var(--glass-border);
+            position: sticky; top: 0; z-index: 1000;
+        }
+        header h2 { font-family: var(--font-head); font-weight: 700; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 26px; }
+        header a { color: white; text-decoration: none; font-size: 15px; transition: 0.3s; cursor: pointer; }
+        header a:hover { color: var(--accent); }
+
+        .wizard-container { max-width: 800px; margin: 100px auto; padding: 60px; background: var(--glass); border-radius: 40px; border: 1px solid var(--glass-border); position: relative; overflow: hidden; }
+        .wizard-container::before { content: ''; position: absolute; top:-50%; left:-50%; width:200%; height:200%; background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 60%); z-index: -1; }
+
+        .section-title { font-family: var(--font-head); font-size: 42px; text-align: center; margin-bottom: 20px; font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .section-desc { text-align: center; color: var(--text-muted); margin-bottom: 50px; font-size: 18px; }
+
+        .wizard-box select {
+            width: 100%; padding: 18px 25px; margin-bottom: 25px; background: rgba(255,255,255,0.03);
+            border: 1px solid var(--glass-border); border-radius: 15px; color: white; font-size: 16px; transition: 0.4s;
+            appearance: none; cursor: pointer;
+        }
+        .wizard-box select:focus { border-color: var(--accent); outline: none; background: rgba(255,255,255,0.07); }
+
+        .btn {
+            background: var(--gradient); color: white; border: none; padding: 18px 40px;
+            border-radius: 15px; font-weight: 600; cursor: pointer; transition: 0.4s; width: 100%; font-size: 18px;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(99, 102, 241, 0.5); letter-spacing: 1px; }
+
+        .wizard-result { margin-top: 40px; display: none; padding: 30px; border-radius: 20px; background: rgba(0, 229, 255, 0.05); border: 1px solid rgba(0, 229, 255, 0.2); animation: fadeInUp 0.5s ease; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .wizard-result h3 { color: var(--accent); margin-bottom: 10px; font-family: var(--font-head); }
+        .wizard-result p { font-size: 18px; line-height: 1.6; }
+
+        footer { text-align: center; padding: 60px 0; border-top: 1px solid var(--glass-border); margin-top: 100px; color: var(--text-muted); font-size: 14px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h2 onclick="window.location.href='combined.html'" style="cursor:pointer;">DigiTech Connect</h2>
+        <nav>
+            <a href="combined.html">← Back to Home</a>
+        </nav>
+    </header>
+
+    <div class="wizard-container">
+        <h1 class="section-title">Smart Service Wizard</h1>
+        <p class="section-desc">Answer two simple questions and our AI-powered recommendation engine will build your custom roadmap to success.</p>
+
+        <div class="wizard-box">
+            <select id="goal">
+                <option value="">-- Select Your Goal --</option>
+                <option value="sales">Increase Sales</option>
+                <option value="branding">Improve Branding</option>
+                <option value="website">Build a Website</option>
+                <option value="automation">Automate Business</option>
+            </select>
+
+            <select id="budget">
+                <option value="">-- Select Your Budget --</option>
+                <option value="low">Below ₹10,000</option>
+                <option value="medium">₹10,000 - ₹50,000</option>
+                <option value="high">Above ₹50,000</option>
+            </select>
+
+            <button class="btn" onclick="showRecommendation()">Get Recommendation</button>
+
+            <div class="wizard-result" id="resultBox">
+                <h3><i class="fas fa-magic"></i> Recommended Services:</h3>
+                <p id="recommendationText"></p>
+                <button class="btn" style="margin-top: 25px; background: var(--glass); border: 1px solid var(--accent); box-shadow: none;" onclick="window.location.href='combined.html#contact'">Book Free Consultation</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 DigiTech Connect | AI Recommendation System</p>
+    </footer>
+
+    <script>
+        function showRecommendation() {
+            let goal = document.getElementById("goal").value;
+            let budget = document.getElementById("budget").value;
+            let recommendation = "";
+
+            if (goal === "sales") {
+                recommendation = "Google Ads + SEO + Lead Management Dashboard";
+            }
+            else if (goal === "branding") {
+                recommendation = "Social Media Marketing + Logo Design + Content Creation";
+            }
+            else if (goal === "website") {
+                recommendation = "Website Development + Hosting + SEO Optimization";
+            }
+            else if (goal === "automation") {
+                recommendation = "AI Chatbot + CRM Integration + Email Automation";
+            }
+            else {
+                alert("Please select a goal!");
+                return;
+            }
+
+            if (budget === "low") {
+                recommendation += " (Starter Plan)";
+            }
+            else if (budget === "medium") {
+                recommendation += " (Pro Plan)";
+            }
+            else if (budget === "high") {
+                recommendation += " (Enterprise Plan)";
+            }
+            else {
+                alert("Please select a budget!");
+                return;
+            }
+
+            document.getElementById("recommendationText").innerHTML = recommendation;
+            document.getElementById("resultBox").style.display = "block";
+            
+            // Auto-save lead as a "Viewed Recommendation"
+            saveWizardLead(recommendation);
+        }
+
+        async function saveWizardLead(serviceText) {
+            try {
+                const response = await fetch('http://localhost:5000/api/requests', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: "Wizard User",
+                        service: serviceText,
+                        budget: document.getElementById("budget").value || "Not set"
+                    })
+                });
+                
+                if (response.ok) {
+                    console.log("Wizard lead saved to database");
+                }
+            } catch (error) {
+                console.error("Failed to save wizard lead:", error);
+            }
+        }
+    </script>
+</body>
+</html>

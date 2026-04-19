@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DigiTech Connect | Login</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #050510, #0d0d2b);
+            color: white;
+        }
+
+        .login-container {
+            width: 900px;
+            height: 500px;
+            display: flex;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.25);
+        }
+
+        .left-box {
+            width: 50%;
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(10px);
+        }
+
+        .left-box h1 {
+            color: #00e5ff;
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .left-box p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #d0d0d0;
+            margin-bottom: 25px;
+        }
+
+        .left-box ul {
+            list-style: none;
+        }
+
+        .left-box ul li {
+            margin: 12px 0;
+            padding: 10px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            font-size: 14px;
+        }
+
+        .right-box {
+            width: 50%;
+            padding: 60px 50px;
+            background: rgba(0, 0, 0, 0.75);
+        }
+
+        .right-box h2 {
+            margin-bottom: 25px;
+            font-size: 28px;
+            color: #a855f7;
+        }
+
+        .right-box input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            font-size: 14px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            cursor: pointer;
+            background: linear-gradient(90deg, #00e5ff, #a855f7);
+            color: white;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.04);
+        }
+
+        .extra-links {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .extra-links a {
+            text-decoration: none;
+            color: #00e5ff;
+        }
+
+        @media(max-width: 900px) {
+            .login-container {
+                width: 90%;
+                height: auto;
+                flex-direction: column;
+            }
+
+            .left-box,
+            .right-box {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <!-- LEFT -->
+        <div class="left-box">
+            <h1>DigiTech Connect</h1>
+            <p>
+                Login to manage your marketing campaigns, view analytics, track leads,
+                and access technology services.
+            </p>
+
+            <ul>
+                <li>✔ Smart Marketing Analytics Dashboard</li>
+                <li>✔ Lead Management Tracking</li>
+                <li>✔ Website & App Project Monitoring</li>
+                <li>✔ AI Chatbot Support & Automation</li>
+            </ul>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="right-box">
+            <h2>Client Login</h2>
+
+            <input type="email" id="email" placeholder="Enter Email" required>
+            <input type="password" id="password" placeholder="Enter Password" required>
+
+            <button class="btn" onclick="loginUser()">Login</button>
+
+            <div class="extra-links">
+                <p><a href="#">Forgot Password?</a></p>
+                <p>New User? <a href="#">Create Account</a></p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const API_BASE_URL = 'http://localhost:5000/api';
+
+        async function loginUser() {
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+
+            if (email === "" || password === "") {
+                alert("Please fill all fields!");
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert("Login Successful! Redirecting to Dashboard...");
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                    window.location.href = "dashboard.html";
+                } else {
+                    alert("Error: " + data.error);
+                }
+            } catch (error) {
+                console.error('Login error:', error);
+                alert("Failed to connect to server!");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

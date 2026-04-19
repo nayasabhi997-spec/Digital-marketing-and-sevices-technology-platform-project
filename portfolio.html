@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Portfolio | DigiTech Connect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --accent: #00e5ff;
+            --bg-deep: #030712;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --font-head: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --shadow-premium: 0 10px 40px rgba(0, 0, 0, 0.5);
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-body); }
+        body { background: var(--bg-deep); color: var(--text-main); line-height: 1.6; }
+
+        header {
+            width: 100%; padding: 18px 60px; display: flex; justify-content: space-between; align-items: center;
+            background: rgba(3, 7, 18, 0.4); backdrop-filter: blur(25px); border-bottom: 1px solid var(--glass-border);
+        }
+        header h2 { font-family: var(--font-head); font-weight: 700; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 26px; }
+        header a { color: white; text-decoration: none; font-size: 15px; transition: 0.3s; cursor: pointer; }
+        header a:hover { color: var(--accent); }
+
+        .section { padding: 90px 60px; text-align: center; min-height: 80vh; }
+        .section-title { font-family: var(--font-head); font-size: 42px; margin-bottom: 50px; color: white; }
+        
+        .portfolio { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .project { background: var(--glass); border: 1px solid var(--glass-border); padding: 35px; border-radius: 20px; transition: 0.4s; box-shadow: var(--shadow-premium); text-align: left; }
+        .project:hover { transform: translateY(-10px); border-color: var(--secondary); box-shadow: 0 15px 40px rgba(168, 85, 247, 0.3); }
+        .project h3 { font-size: 24px; margin-bottom: 15px; color: var(--accent); font-family: var(--font-head); }
+        .project p { font-size: 16px; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>DigiTech Connect</h2>
+        <nav>
+            <a href="combined.html">← Back to Home</a>
+        </nav>
+    </header>
+
+    <section class="section" id="portfolio">
+        <h2 class="section-title">Our Premium Portfolio</h2>
+
+        <div class="portfolio">
+            <div class="project">
+                <h3>SEO Growth Campaign</h3>
+                <p>Boosted traffic by 120% for a retail website through an aggressive, targeted digital marketing strategy.</p>
+            </div>
+            <div class="project">
+                <h3>E-Commerce Web Portal</h3>
+                <p>Developed a full online high-speed lightweight shopping website with modern payment integrations.</p>
+            </div>
+            <div class="project">
+                <h3>Social Media Branding</h3>
+                <p>Created Instagram & Facebook campaigns achieving 5x standard audience engagement rates.</p>
+            </div>
+            <div class="project">
+                <h3>AI Chatbot System</h3>
+                <p>Built a custom conversational LLM-powered customer support chatbot for a specialized service company.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

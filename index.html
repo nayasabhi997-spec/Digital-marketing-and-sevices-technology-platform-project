@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DigiTech Connect | Marketing & Tech Platform</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #050510, #0d0d2b);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        header {
+            width: 100%;
+            padding: 18px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+        }
+
+        header h2 {
+            color: #00e5ff;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00e5ff;
+        }
+
+        .btn {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            background: linear-gradient(90deg, #00e5ff, #a855f7);
+            color: white;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* HERO */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 90px 60px;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            max-width: 550px;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        .hero-text h1 {
+            font-size: 45px;
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .hero-text span {
+            color: #00e5ff;
+        }
+
+        .hero-text p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #d0d0d0;
+            margin-bottom: 25px;
+        }
+
+        .hero-box {
+            width: 400px;
+            height: 320px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
+            padding: 20px;
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);
+            backdrop-filter: blur(12px);
+            animation: float 4s infinite ease-in-out;
+        }
+
+        .hero-box h3 {
+            margin-bottom: 12px;
+            color: #00e5ff;
+        }
+
+        .hero-box ul {
+            margin-top: 15px;
+            list-style: none;
+        }
+
+        .hero-box ul li {
+            padding: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            margin-bottom: 8px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        /* SERVICES */
+        .section {
+            padding: 70px 60px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 34px;
+            margin-bottom: 40px;
+            color: #00e5ff;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.06);
+            padding: 25px;
+            border-radius: 15px;
+            transition: 0.3s;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.15);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);
+        }
+
+        .service-card h3 {
+            margin-bottom: 10px;
+            color: #a855f7;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: #d0d0d0;
+            line-height: 1.6;
+        }
+
+        /* WIZARD */
+        .wizard {
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+        }
+
+        .wizard select {
+            width: 80%;
+            padding: 12px;
+            margin: 12px 0;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .wizard-result {
+            margin-top: 20px;
+            padding: 18px;
+            background: rgba(0, 229, 255, 0.12);
+            border-radius: 10px;
+            display: none;
+        }
+
+        /* PORTFOLIO */
+        .portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .project {
+            background: rgba(255, 255, 255, 0.06);
+            padding: 20px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: scale(1.04);
+            box-shadow: 0 0 25px rgba(0, 229, 255, 0.2);
+        }
+
+        .project h3 {
+            color: #00e5ff;
+            margin-bottom: 8px;
+        }
+
+        .project p {
+            color: #d0d0d0;
+            font-size: 14px;
+        }
+
+        /* CAROUSEL */
+        .carousel-section {
+            padding: 70px 60px;
+            position: relative;
+        }
+
+        .carousel-container {
+            max-width: 1100px;
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1);
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.4);
+        }
+
+        .carousel-content {
+            position: absolute;
+            text-align: center;
+            padding: 0 40px;
+            max-width: 700px;
+            z-index: 2;
+        }
+
+        .carousel-content h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #00e5ff;
+        }
+
+        .carousel-content p {
+            font-size: 16px;
+            color: #d1d5db;
+            margin-bottom: 20px;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 10;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+            font-size: 18px;
+        }
+
+        .nav-btn:hover {
+            background: #6366f1;
+            transform: scale(1.1);
+        }
+
+        /* YOUTUBE SECTION */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .video-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.4s;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-card:hover {
+            transform: translateY(-8px);
+            border-color: #00e5ff;
+        }
+
+        .video-card iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+        }
+
+        .video-info {
+            padding: 15px;
+        }
+
+        .video-info h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        /* SOCIAL MEDIA */
+        .social-sidebar {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 100;
+        }
+
+        .social-sidebar a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-sidebar a:hover {
+            background: #6366f1;
+            transform: scale(1.1) translateX(5px);
+        }
+
+        .footer-social {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-social a {
+            color: #d0d0d0;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: #00e5ff;
+            transform: translateY(-3px);
+        }
+
+        /* CONTACT */
+        .contact-form {
+            max-width: 650px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            margin-top: 40px;
+            color: #d0d0d0;
+        }
+
+        /* ANIMATIONS */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0px);
+            }
+        }
+
+        /* RESPONSIVE */
+        @media(max-width: 850px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .section {
+                padding: 60px 20px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero-box {
+                width: 100%;
+                margin-top: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h2>DigiTech Connect</h2>
+        <nav>
+            <a href="#services">Services</a>
+            <a href="#wizard">Smart Wizard</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#stories">Success Stories</a>
+            <a href="#impact">Our Impact</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <button class="btn" onclick="window.location.href='combined.html#login'">Client Login</button>
+    </header>
+
+    <!-- SOCIAL SIDEBAR -->
+    <div class="social-sidebar">
+        <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Boost Your Business with <span>Digital Marketing</span> & Smart Technology</h1>
+            <p>
+                DigiTech Connect is an all-in-one platform where businesses can manage
+                marketing, web solutions, branding, and automation services.
+            </p>
+            <button class="btn">Explore Services</button>
+        </div>
+
+        <div class="hero-box">
+            <h3>Platform Highlights</h3>
+            <ul>
+                <li>✔ Smart Service Recommendation</li>
+                <li>✔ Portfolio & Case Studies</li>
+                <li>✔ Marketing Analytics Dashboard</li>
+                <li>✔ Live Chat Support</li>
+                <li>✔ Custom Packages & Pricing</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section" id="services">
+        <h2 class="section-title">Our Services</h2>
+
+        <div class="services">
+            <div class="service-card">
+                <h3>SEO Optimization</h3>
+                <p>Improve website ranking, increase traffic, and boost online visibility.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Social Media Marketing</h3>
+                <p>Create engaging campaigns and grow brand awareness on social platforms.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Website Development</h3>
+                <p>Build responsive, modern websites for startups, businesses, and companies.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Mobile App Development</h3>
+                <p>Develop Android & iOS apps with modern UI and powerful backend support.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>AI Automation Tools</h3>
+                <p>Use AI-based automation for customer support, lead tracking, and analytics.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Branding & Design</h3>
+                <p>Create professional logos, posters, and branding materials for business.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SMART WIZARD -->
+    <section class="section" id="wizard">
+        <h2 class="section-title">Smart Service Wizard</h2>
+
+        <div class="wizard">
+            <h3>Choose your business goal</h3>
+
+            <select id="goal">
+                <option value="">-- Select Your Goal --</option>
+                <option value="sales">Increase Sales</option>
+                <option value="branding">Improve Branding</option>
+                <option value="website">Build a Website</option>
+                <option value="automation">Automate Business</option>
+            </select>
+
+            <select id="budget">
+                <option value="">-- Select Your Budget --</option>
+                <option value="low">Below ₹10,000</option>
+                <option value="medium">₹10,000 - ₹50,000</option>
+                <option value="high">Above ₹50,000</option>
+            </select>
+
+            <button class="btn" onclick="showRecommendation()">Get Recommendation</button>
+
+            <div class="wizard-result" id="resultBox">
+                <h3>Recommended Services:</h3>
+                <p id="recommendationText"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="section" id="portfolio">
+        <h2 class="section-title">Our Portfolio</h2>
+
+        <div class="portfolio">
+            <div class="project">
+                <h3>SEO Growth Campaign</h3>
+                <p>Boosted traffic by 120% for a retail website.</p>
+            </div>
+
+            <div class="project">
+                <h3>E-Commerce Website</h3>
+                <p>Developed a full online shopping website with payment integration.</p>
+            </div>
+
+            <div class="project">
+                <h3>Social Media Branding</h3>
+                <p>Created Instagram & Facebook campaigns with high engagement.</p>
+            </div>
+
+            <div class="project">
+                <h3>AI Chatbot System</h3>
+                <p>Built customer support chatbot for a service company.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- VISUAL CAROUSEL SECTION -->
+    <section class="carousel-section" id="stories">
+        <h2 class="section-title">Client Success Stories</h2>
+        <div class="carousel-container">
+            <div class="carousel-track" id="carouselTrack">
+                <!-- Slide 1 -->
+                <div class="carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=2070"
+                        alt="Workspace">
+                    <div class="carousel-content">
+                        <h2>"3X Revenue Growth"</h2>
+                        <p>DigiTech's SEO strategies transformed our retail business. Their automated lead tracking
+                            saved us 20 hours a week.</p>
+                        <span style="color: #00e5ff; font-weight: 600;">— Arun Kumar, Retail Ventures</span>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2015"
+                        alt="Analytics">
+                    <div class="carousel-content">
+                        <h2>"Seamless Web Experience"</h2>
+                        <p>The development team built a lightning-fast E-commerce platform that increased our
+                            conversion rate by 45%.</p>
+                        <span style="color: #a855f7; font-weight: 600;">— Priya Sharma, Global
+                            Trends</span>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="carousel-slide">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=2070"
+                        alt="Team">
+                    <div class="carousel-content">
+                        <h2>"Future-Proof Automation"</h2>
+                        <p>Their AI Chatbot handles 80% of our customer queries automatically. A total game changer
+                            for our support team.</p>
+                        <span style="color: #6366f1; font-weight: 600;">— Rahul Verma, TechNova
+                            Solutions</span>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-nav">
+                <button class="nav-btn" onclick="moveCarousel(-1)"><i class="fas fa-chevron-left"></i></button>
+                <button class="nav-btn" onclick="moveCarousel(1)"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- YOUTUBE VIDEO SECTION -->
+    <section class="section" id="impact">
+        <h2 class="section-title">Watch Our Impact</h2>
+        <div class="video-grid">
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Success Story 1"
+                    allowfullscreen></iframe>
+                <div class="video-info">
+                    <h3>Digital Transformation Journey</h3>
+                    <p style="color: #d0d0d0; font-size: 14px;">See how we scale businesses using smart
+                        technology and data-driven marketing.</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/Ex533nm6S3E" title="Success Story 2"
+                    allowfullscreen></iframe>
+                <div class="video-info">
+                    <h3>Inside DigiTech Connect</h3>
+                    <p style="color: #d0d0d0; font-size: 14px;">Behind the scenes of our AI automation
+                        tools and client dashboard features.</p>
+                </div>
+            </div>
+            <div class="video-card">
+                <iframe src="https://www.youtube.com/embed/9No-FiE9GTM" title="Success Story 3"
+                    allowfullscreen></iframe>
+                <div class="video-info">
+                    <h3>Client Testimonial: TechNova</h3>
+                    <p style="color: #d0d0d0; font-size: 14px;">Hear directly from our global clients
+                        about their growth and experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+        <h2 class="section-title">Contact Us</h2>
+
+        <div class="contact-form">
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+            <input type="text" placeholder="Your Business Type" required />
+            <textarea rows="4" placeholder="Your Message"></textarea>
+            <button class="btn" style="width:100%;" onclick="sendContactMessage()">Send Message</button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <h2 style="color: #00e5ff; margin-bottom: 10px;">DigiTech Connect</h2>
+        <div class="footer-social">
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+        </div>
+        <p style="margin-top: 15px; color: #d0d0d0;">© 2026 DigiTech Connect | Digital Marketing & Technology Services Platform</p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        function showRecommendation() {
+            let goal = document.getElementById("goal").value;
+            let budget = document.getElementById("budget").value;
+
+            let recommendation = "";
+
+            if (goal === "sales") {
+                recommendation = "Google Ads + SEO + Lead Management Dashboard";
+            }
+            else if (goal === "branding") {
+                recommendation = "Social Media Marketing + Logo Design + Content Creation";
+            }
+            else if (goal === "website") {
+                recommendation = "Website Development + Hosting + SEO Optimization";
+            }
+            else if (goal === "automation") {
+                recommendation = "AI Chatbot + CRM Integration + Email Automation";
+            }
+            else {
+                recommendation = "Please select a goal and budget to get recommendation.";
+            }
+
+            if (budget === "low") {
+                recommendation += " (Starter Plan)";
+            }
+            else if (budget === "medium") {
+                recommendation += " (Pro Plan)";
+            }
+            else if (budget === "high") {
+                recommendation += " (Enterprise Plan)";
+            }
+
+            document.getElementById("recommendationText").innerHTML = recommendation;
+            document.getElementById("resultBox").style.display = "block";
+        }
+
+        // VISUAL CAROUSEL LOGIC
+        let currentSlide = 0;
+        const totalSlides = 3;
+
+        function moveCarousel(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            const track = document.getElementById('carouselTrack');
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        // Auto-play
+        setInterval(() => moveCarousel(1), 5000);
+
+        const API_BASE_URL = 'http://localhost:5000/api';
+
+        async function sendContactMessage() {
+            const nameInput = document.querySelectorAll('.contact-form input')[0];
+            const emailInput = document.querySelectorAll('.contact-form input')[1];
+            const businessInput = document.querySelectorAll('.contact-form input')[2];
+            const messageInput = document.querySelector('.contact-form textarea');
+            const btn = document.querySelector('.contact-form .btn');
+
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+            const business = businessInput.value.trim();
+            const message = messageInput.value.trim();
+
+            if (!name || !email || !message) {
+                alert('Please fill in required fields!');
+                return;
+            }
+
+            const originalText = btn.innerText;
+            btn.innerText = 'Sending...';
+            btn.disabled = true;
+
+            try {
+                const response = await fetch(`${API_BASE_URL}/contact`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, business, message })
+                });
+
+                if (response.ok) {
+                    alert('✅ Message sent successfully! We will contact you soon.');
+                    nameInput.value = '';
+                    emailInput.value = '';
+                    businessInput.value = '';
+                    messageInput.value = '';
+                } else {
+                    alert('Failed to send message.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Backend connection error. Please ensure the server is running.');
+            } finally {
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

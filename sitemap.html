@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitemap | DigiTech Connect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --accent: #00e5ff;
+            --bg-deep: #030712;
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --font-head: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: var(--font-body); }
+        body { background: var(--bg-deep); color: var(--text-main); line-height: 1.6; }
+
+        header {
+            width: 100%; padding: 18px 60px; display: flex; justify-content: space-between; align-items: center;
+            background: rgba(3, 7, 18, 0.4); backdrop-filter: blur(25px); border-bottom: 1px solid var(--glass-border);
+            position: sticky; top: 0; z-index: 1000;
+        }
+        header h2 { font-family: var(--font-head); font-weight: 700; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 26px; }
+        header a { color: white; text-decoration: none; font-size: 15px; transition: 0.3s; cursor: pointer; }
+        header a:hover { color: var(--accent); }
+
+        .sitemap-container { max-width: 1100px; margin: 80px auto; padding: 0 40px; }
+        .sitemap-title { font-family: var(--font-head); font-size: 48px; margin-bottom: 50px; text-align: center; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 800; }
+
+        .sitemap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .sitemap-card { background: var(--glass); padding: 40px; border-radius: 25px; border: 1px solid var(--glass-border); transition: 0.4s; }
+        .sitemap-card:hover { transform: translateY(-5px); border-color: var(--secondary); box-shadow: 0 10px 40px rgba(168, 85, 247, 0.1); }
+        .sitemap-card h3 { font-family: var(--font-head); font-size: 24px; color: var(--accent); margin-bottom: 25px; display: flex; align-items: center; gap: 15px; }
+        .sitemap-card h3 i { font-size: 20px; }
+
+        .sitemap-links { list-style: none; }
+        .sitemap-links li { margin-bottom: 15px; }
+        .sitemap-links a { color: var(--text-muted); text-decoration: none; transition: 0.3s; font-size: 16px; display: flex; align-items: center; gap: 10px; }
+        .sitemap-links a:hover { color: white; padding-left: 5px; }
+        .sitemap-links a i { font-size: 12px; color: var(--primary); }
+
+        footer { text-align: center; padding: 60px 0; border-top: 1px solid var(--glass-border); margin-top: 100px; color: var(--text-muted); font-size: 14px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h2 onclick="window.location.href='combined.html'" style="cursor:pointer;">DigiTech Connect</h2>
+        <nav>
+            <a href="combined.html">← Back to Home</a>
+        </nav>
+    </header>
+
+    <div class="sitemap-container">
+        <h1 class="sitemap-title">Visual Sitemap</h1>
+
+        <div class="sitemap-grid">
+            <!-- Main Infrastructure -->
+            <div class="sitemap-card">
+                <h3><i class="fas fa-network-wired"></i> Main Hub</h3>
+                <ul class="sitemap-links">
+                    <li><a href="combined.html#home"><i class="fas fa-chevron-right"></i> Home / Landing</a></li>
+                    <li><a href="wizard.html"><i class="fas fa-chevron-right"></i> Smart Wizard</a></li>
+                    <li><a href="combined.html#stories"><i class="fas fa-chevron-right"></i> Success Stories</a></li>
+                    <li><a href="combined.html#contact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Deep Paths -->
+            <div class="sitemap-card">
+                <h3><i class="fas fa-layer-group"></i> Separate Paths</h3>
+                <ul class="sitemap-links">
+                    <li><a href="services.html"><i class="fas fa-chevron-right"></i> Premium Services</a></li>
+                    <li><a href="portfolio.html"><i class="fas fa-chevron-right"></i> Client Portfolio</a></li>
+                    <li><a href="legal.html#privacy"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                    <li><a href="legal.html#terms"><i class="fas fa-chevron-right"></i> Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <!-- Client Portal -->
+            <div class="sitemap-card">
+                <h3><i class="fas fa-user-shield"></i> Client Portal</h3>
+                <ul class="sitemap-links">
+                    <li><a href="combined.html#page-login"><i class="fas fa-chevron-right"></i> User Login</a></li>
+                    <li><a href="combined.html#page-login"><i class="fas fa-chevron-right"></i> Create Account</a></li>
+                    <li><a href="combined.html#page-dashboard"><i class="fas fa-chevron-right"></i> Lead Dashboard</a></li>
+                    <li><a href="combined.html#page-dashboard"><i class="fas fa-chevron-right"></i> Project Tracker</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 DigiTech Connect | Empowering Digital Growth Worldwide</p>
+    </footer>
+</body>
+</html>
