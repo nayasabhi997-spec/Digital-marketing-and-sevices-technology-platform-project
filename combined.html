@@ -44,6 +44,7 @@
             border-radius: 20px;
             border: 1px solid var(--glass-border);
         }
+
         .status-dot {
             width: 8px;
             height: 8px;
@@ -52,40 +53,110 @@
             box-shadow: 0 0 10px #10b981;
             animation: pulse 2s infinite;
         }
+
         @keyframes pulse {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.5); opacity: 0.5; }
-            100% { transform: scale(1); opacity: 1; }
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.5);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
         /* FLYER STYLES */
-        .flyer-section { padding: 60px 60px; background: var(--bg-deep); }
+        .flyer-section {
+            padding: 60px 60px;
+            background: var(--bg-deep);
+        }
+
         .flyer-container {
-            max-width: 1200px; margin: auto; height: 480px; border-radius: 35px;
-            position: relative; overflow: hidden; display: flex; align-items: center;
-            padding: 60px; box-shadow: 0 30px 60px rgba(0,0,0,0.7);
+            max-width: 1200px;
+            margin: auto;
+            height: 480px;
+            border-radius: 35px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 60px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
             border: 1px solid var(--glass-border);
         }
+
         .flyer-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: linear-gradient(90deg, rgba(3, 7, 18, 0.95) 35%, transparent 100%);
             z-index: 1;
         }
-        .flyer-content { position: relative; z-index: 2; max-width: 600px; }
+
+        .flyer-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+        }
+
         .flyer-badge {
-            background: var(--accent); color: var(--bg-deep); padding: 6px 16px;
-            border-radius: 20px; font-size: 13px; font-weight: 800;
-            text-transform: uppercase; margin-bottom: 25px; display: inline-block;
+            background: var(--accent);
+            color: var(--bg-deep);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            display: inline-block;
             letter-spacing: 1px;
         }
+
         .flyer-content h2 {
-            font-family: var(--font-head); font-size: 52px; margin-bottom: 20px; line-height: 1.1; font-weight: 800;
-            background: linear-gradient(to right, #fff, #94a3b8); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-family: var(--font-head);
+            font-size: 52px;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            font-weight: 800;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .flyer-content p { font-size: 20px; color: var(--text-muted); margin-bottom: 35px; line-height: 1.6; }
-        .flyer-features { display: flex; gap: 20px; margin-bottom: 40px; flex-wrap: wrap; }
-        .flyer-features span { font-size: 15px; color: var(--text-main); display: flex; align-items: center; gap: 8px; }
-        .flyer-features i { color: var(--accent); }
+
+        .flyer-content p {
+            font-size: 20px;
+            color: var(--text-muted);
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+
+        .flyer-features {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .flyer-features span {
+            font-size: 15px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .flyer-features i {
+            color: var(--accent);
+        }
 
         * {
             margin: 0;
@@ -1287,20 +1358,26 @@
 
         <!-- PROMOTIONAL FLYER -->
         <section class="flyer-section" id="flyer">
-            <div class="flyer-container" style="background: url('file:///C:/Users/ABHINAYA%20S/.gemini/antigravity/brain/cece656c-e042-4b41-9919-d64602e6657e/digitech_promo_flyer_bg_1776490824556.png') center/cover no-repeat;">
+            <div class="flyer-container"
+                style="background: url('file:///C:/Users/ABHINAYA%20S/.gemini/antigravity/brain/cece656c-e042-4b41-9919-d64602e6657e/digitech_promo_flyer_bg_1776490824556.png') center/cover no-repeat;">
                 <div class="flyer-overlay"></div>
                 <div class="flyer-content">
                     <span class="flyer-badge">Flash Deal</span>
                     <h2>Elevate Your Vision with AI Automation</h2>
-                    <p>Unlock <strong>30% OFF</strong> your first custom AI strategy and workflow automation. Power your brand with intelligence.</p>
+                    <p>Unlock <strong>30% OFF</strong> your first custom AI strategy and workflow automation. Power your
+                        brand with intelligence.</p>
                     <div class="flyer-features">
                         <span><i class="fas fa-check-circle"></i> Smart Lead Capture</span>
                         <span><i class="fas fa-check-circle"></i> 24/7 AI Support</span>
                         <span><i class="fas fa-check-circle"></i> CRM Integration</span>
                     </div>
                     <div style="display: flex; gap: 15px;">
-                        <button class="btn" style="padding: 16px 40px; font-size: 17px;" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Claim Discount Now</button>
-                        <button class="btn" style="padding: 16px 40px; font-size: 17px; background: rgba(255,255,255,0.1); border: 1px solid var(--glass-border);" onclick="openOfferModal()">Learn More</button>
+                        <button class="btn" style="padding: 16px 40px; font-size: 17px;"
+                            onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Claim
+                            Discount Now</button>
+                        <button class="btn"
+                            style="padding: 16px 40px; font-size: 17px; background: rgba(255,255,255,0.1); border: 1px solid var(--glass-border);"
+                            onclick="openOfferModal()">Learn More</button>
                     </div>
                 </div>
             </div>
@@ -1309,15 +1386,24 @@
         <!-- FLYER OFFER MODAL -->
         <div class="api-key-modal" id="offerModal">
             <div class="api-key-box" style="max-width: 500px; text-align: left;">
-                <h3 style="color: var(--accent); margin-bottom: 15px;"><i class="fas fa-gift"></i> Exclusive AI Strategy Offer</h3>
+                <h3 style="color: var(--accent); margin-bottom: 15px;"><i class="fas fa-gift"></i> Exclusive AI Strategy
+                    Offer</h3>
                 <p style="color: #fff; font-weight: 600;">Get a customized AI automation roadmap for your business.</p>
                 <ul style="color: #d0d0d0; font-size: 14px; margin: 15px 0; list-style: none; padding: 0;">
-                    <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: var(--accent); margin-right: 10px;"></i> 1-on-1 Consultation with AI Experts</li>
-                    <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: var(--accent); margin-right: 10px;"></i> Analysis of your current manual workflows</li>
-                    <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: var(--accent); margin-right: 10px;"></i> Detailed ROI Projection for AI implementation</li>
-                    <li style="margin-bottom: 8px;"><i class="fas fa-check" style="color: var(--accent); margin-right: 10px;"></i> Priority implementation support</li>
+                    <li style="margin-bottom: 8px;"><i class="fas fa-check"
+                            style="color: var(--accent); margin-right: 10px;"></i> 1-on-1 Consultation with AI Experts
+                    </li>
+                    <li style="margin-bottom: 8px;"><i class="fas fa-check"
+                            style="color: var(--accent); margin-right: 10px;"></i> Analysis of your current manual
+                        workflows</li>
+                    <li style="margin-bottom: 8px;"><i class="fas fa-check"
+                            style="color: var(--accent); margin-right: 10px;"></i> Detailed ROI Projection for AI
+                        implementation</li>
+                    <li style="margin-bottom: 8px;"><i class="fas fa-check"
+                            style="color: var(--accent); margin-right: 10px;"></i> Priority implementation support</li>
                 </ul>
-                <p style="font-size: 12px; color: var(--text-muted);">*Offer valid for first-time customers on projects above ₹25,000.</p>
+                <p style="font-size: 12px; color: var(--text-muted);">*Offer valid for first-time customers on projects
+                    above ₹25,000.</p>
                 <div class="btn-row" style="margin-top: 25px;">
                     <button class="btn-save" style="width: 100%;" onclick="closeOfferModal()">Got it, Thanks!</button>
                 </div>
@@ -1367,6 +1453,7 @@
         <!-- SOCIAL SIDEBAR -->
         <div class="social-sidebar">
             <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
             <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
             <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -1488,6 +1575,7 @@
             </div>
             <div class="footer-social">
                 <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
                 <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
@@ -1609,6 +1697,41 @@
                 </div>
                 <div class="progress-percent" id="progressPercent">40% Complete</div>
             </div>
+            </div>
+
+            <!-- MARKETING CREATOR CENTER -->
+            <h2 style="color:#00e5ff; margin: 25px 0 15px 0;">Marketing Creator Center</h2>
+            <div class="cards" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                <div class="card" style="border: 1px solid var(--accent); position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: 10px; right: 10px; background: var(--accent); color: #000; font-size: 10px; font-weight: bold; padding: 2px 6px; border-radius: 4px;">A5 SIZE</div>
+                    <h3>Business Flyer</h3>
+                    <p>Generate and view your professional A5 business flyer for offline marketing.</p>
+                    <button class="btn" onclick="window.open('flyer.html', '_blank')" style="margin-top: 15px; width: 100%;">View & Print Flyer</button>
+                </div>
+
+                <div class="card" style="border: 1px solid var(--secondary);">
+                    <h3>AI Video Studio</h3>
+                    <p>Generate high-converting prompts for <strong>AI Animaker</strong> and other video tools.</p>
+                    <div style="margin-top: 15px;">
+                        <select id="videoGoal" style="width: 100%; padding: 10px; background: rgba(255,255,255,0.05); color: #fff; border: 1px solid var(--glass-border); border-radius: 8px; margin-bottom: 10px;">
+                            <option value="promo">Promotional Video</option>
+                            <option value="tutorial">Product Tutorial</option>
+                            <option value="testimony">Client Testimonial</option>
+                            <option value="social">Social Media Short</option>
+                        </select>
+                        <button class="btn" onclick="generateVideoPrompt()" style="width: 100%; background: var(--secondary); box-shadow: 0 5px 15px rgba(168, 85, 247, 0.3);">Generate AI Video Script</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIDEO PROMPT RESULT -->
+            <div id="videoStudioResult" class="tracker" style="display:none; margin-top: 20px; border-color: var(--secondary);">
+                <h3 style="color: var(--secondary); margin-bottom: 15px;">🤖 AI Video Prompt for Animaker</h3>
+                <div id="promptBox" style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; font-size: 14px; line-height: 1.6; border: 1px dashed var(--secondary);">
+                    <!-- Prompt goes here -->
+                </div>
+                <p style="font-size: 11px; margin-top: 10px; color: var(--text-muted);">Copy this prompt into Animaker AI to generate your video automatically.</p>
+            </div>
 
             <!-- LEADS TABLE -->
             <h2 style="color:#a855f7; margin-bottom:15px;">Lead Management Table</h2>
@@ -1692,11 +1815,14 @@
         <div class="api-key-box" style="max-width: 350px;">
             <h3>🤖 Bot Personality</h3>
             <p>Select how you want the AI to communicate with you:</p>
-            
+
             <div style="display: flex; flex-direction: column; gap: 10px; margin: 15px 0;">
-                <button class="persona-btn" onclick="setBotPersona('professional')" id="p-professional">👔 Professional Advisor</button>
-                <button class="persona-btn" onclick="setBotPersona('friendly')" id="p-friendly">😊 Friendly Assistant</button>
-                <button class="persona-btn" onclick="setBotPersona('technical')" id="p-technical">💻 Technical Expert</button>
+                <button class="persona-btn" onclick="setBotPersona('professional')" id="p-professional">👔 Professional
+                    Advisor</button>
+                <button class="persona-btn" onclick="setBotPersona('friendly')" id="p-friendly">😊 Friendly
+                    Assistant</button>
+                <button class="persona-btn" onclick="setBotPersona('technical')" id="p-technical">💻 Technical
+                    Expert</button>
             </div>
 
             <div class="btn-row">
@@ -1707,7 +1833,7 @@
 
     <style>
         .persona-btn {
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--glass-border);
             color: #fff;
             padding: 10px;
@@ -1716,8 +1842,12 @@
             text-align: left;
             transition: 0.3s;
         }
-        .persona-btn:hover { background: rgba(255,255,255,0.1); }
-        .persona-btn.active { 
+
+        .persona-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .persona-btn.active {
             border-color: var(--accent);
             background: rgba(0, 229, 255, 0.1);
             color: var(--accent);
@@ -1762,7 +1892,7 @@
         }
 
         // On Load: Check if user is already logged in
-        window.onload = function() {
+        window.onload = function () {
             const user = JSON.parse(localStorage.getItem('user'));
             if (user) {
                 const topBarText = document.querySelector('.top-bar h1');
@@ -1794,7 +1924,7 @@
                 // Update Stats Cards
                 const leadsEl = document.getElementById('totalLeadsCount');
                 if (leadsEl) leadsEl.innerText = stats.totalLeads + ' Leads';
-                
+
                 const campaignsEl = document.getElementById('activeCampaignsCount');
                 if (campaignsEl) campaignsEl.innerText = stats.activeCampaigns + ' Active';
 
@@ -2121,7 +2251,7 @@
                     body: JSON.stringify({ email: user.email, progress: progressData })
                 });
                 console.log('Progress synced to backend');
-                
+
                 // Also refresh stats to reflect new progress percentage
                 fetchStats();
             } catch (error) {
@@ -2137,12 +2267,12 @@
                 const response = await fetch(`${API_BASE_URL}/user/progress/${user.email}`);
                 if (!response.ok) return;
                 const data = await response.json();
-                
+
                 const steps = document.querySelectorAll('.tracker .progress');
                 steps.forEach((el, idx) => {
                     const label = stepLabels[idx];
                     const stepData = data.progress.find(p => p.step === idx);
-                    
+
                     if (stepData) {
                         el.className = 'progress ' + stepData.status;
                         if (stepData.status === 'completed') el.innerHTML = '✔ ' + label;
@@ -2248,18 +2378,18 @@
                 // Update active button
                 document.querySelectorAll('.persona-btn').forEach(btn => btn.classList.remove('active'));
                 const activeBtn = document.getElementById('p-' + currentPersona);
-                if(activeBtn) activeBtn.classList.add('active');
+                if (activeBtn) activeBtn.classList.add('active');
             }
         }
 
         function setBotPersona(p) {
             currentPersona = p;
             localStorage.setItem('bot_persona', p);
-            
+
             // Update UI
             document.querySelectorAll('.persona-btn').forEach(btn => btn.classList.remove('active'));
             const activeBtn = document.getElementById('p-' + p);
-            if(activeBtn) activeBtn.classList.add('active');
+            if (activeBtn) activeBtn.classList.add('active');
 
             // Reset history with new system prompt
             chatHistory = [
@@ -2268,7 +2398,7 @@
                     content: personas[currentPersona] + `\n\nServices: SEO, Website/App Dev, AI Automation.\nPricing: Starter (<₹10k), Pro (₹10k-₹50k), Enterprise (>₹50k).`
                 }
             ];
-            
+
             addMessage(`✨ Assistant personality updated to: **${p.charAt(0).toUpperCase() + p.slice(1)}**`, 'bot');
             setTimeout(() => toggleBotSettings(), 600);
         }
@@ -2365,6 +2495,46 @@
         function closeOfferModal() {
             document.getElementById('offerModal').classList.remove('open');
         }
+
+        // ===== AI VIDEO STUDIO LOGIC =====
+        function generateVideoPrompt() {
+            const goal = document.getElementById('videoGoal').value;
+            const promptBox = document.getElementById('promptBox');
+            const resultDiv = document.getElementById('videoStudioResult');
+            
+            let promptText = "";
+
+            if (goal === 'promo') {
+                promptText = `Create a 30-second high-energy promotional video for "DigiTech Connect". 
+                [SCENE 1]: Futuristic cybercity, text 'Struggling with Digital Growth?'.
+                [SCENE 2]: 3D abstract connection lines, text 'DigiTech Connect is the answer'.
+                [SCENE 3]: Fast-paced montage of SEO charts, Web Code, and AI Chatbots.
+                [VOICE OVER]: Professional, deep, dramatic voice saying: 'Your business, amplified by technology. From SEO to AI Automation, we build the future today.'
+                [CALL TO ACTION]: Visit localhost:5173.`;
+            } else if (goal === 'tutorial') {
+                promptText = `Explain the "DigiTech Connect Dashboard" in 60 seconds. 
+                [STORYBOARD]: 2D character (Marketing Manager) looking stressed, then opening the dashboard.
+                [SHOW]: Character clicking on 'Lead Management' and 'AI Assistant'.
+                [MESSAGE]: Simplify your workflow. Track every lead. Automate every response.
+                [ANIMATION STYLE]: Minimalist, motion graphics, clean vectors.`;
+            } else if (goal === 'testimony') {
+                promptText = `Client success story style. 
+                [CAST]: Business owner character in a modern office.
+                [TEXT]: "We grew 300% in 6 months".
+                [BACKGROUND]: Graph trending upwards with neon glows.
+                [TONE]: Inspiring, trustworthy, results-driven.`;
+            } else if (goal === 'social') {
+                promptText = `Instagram/TikTok Reel style. 
+                [FOCUS]: 3 Quick Marketing Tips for 2026.
+                [TIP 1]: Use AI Chatbots. [TIP 2]: Optimize for Voice Search. [TIP 3]: Deep Data Analytics.
+                [OUTRO]: Fast transition to DigiTech Connect Logo.`;
+            }
+
+            promptBox.innerText = promptText;
+            resultDiv.style.display = 'block';
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
     </script>
 
 </body>
