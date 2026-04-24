@@ -18,8 +18,16 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files from the current directory
-app.use(express.static(path.join(__dirname, '../frontend')));
+// Serve static files
+// In production, serve from the 'dist' folder. In development, serve from the source folder.
+const frontendPath = path.join(__dirname, '../frontend/dist');
+const devFrontendPath = path.join(__dirname, '../frontend');
+
+if (require('fs').existsSync(frontendPath)) {
+    app.use(express.static(frontendPath));
+} else {
+    app.use(express.static(devFrontendPath));
+}
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/digitech')
@@ -322,4 +330,3 @@ app.post('/api/forgot-password', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Backend server successfully running at http://localhost:${PORT}`);
 });
-
