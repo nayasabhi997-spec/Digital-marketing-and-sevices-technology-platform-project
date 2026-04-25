@@ -19,15 +19,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve static files
-// In production, serve from the 'dist' folder. In development, serve from the source folder.
 const frontendPath = path.join(__dirname, '../frontend/dist');
 const devFrontendPath = path.join(__dirname, '../frontend');
 
+// First priority: check for built files in /dist
 if (require('fs').existsSync(frontendPath)) {
     app.use(express.static(frontendPath));
-} else {
-    app.use(express.static(devFrontendPath));
 }
+
+// Second priority: check for source files in /frontend (for files not in the build, like combined.html)
+app.use(express.static(devFrontendPath));
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/digitech')
